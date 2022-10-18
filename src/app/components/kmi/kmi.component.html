@@ -1,0 +1,34 @@
+<div class="row mt-5">
+  <div class="col-md-6">
+    <div class="card">
+
+
+
+      <div class="card-header">KMI skaičiuoklė</div>
+      <div class="card-body">
+          <div class="mb-3">
+            <label>Jūsų svoris:</label>
+            <input type="number" class="form-control" [(ngModel)]="svoris" >
+          </div>
+        <div class="mb-3">
+          <label>Jūsų ūgis:</label>
+          <input type="number" class="form-control" [(ngModel)]="ugis">
+        </div>
+        <button class="btn btn-success" [disabled]="ugis==null || svoris==null"  (click)="skaiciuoti()" >Skaičiuoti</button>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+
+
+
+      <div class="card-header">KMI rezultatai</div>
+      <div class="card-body">
+        <div *ngIf="kmi!=null"> Rezultas: {{ kmi }} </div>
+        <div *ngIf="kmi==null"> Įveskite ūgį ir svorį ir paspauskite skaičiuoti</div>
+      </div>
+    </div>
+  </div>
+</div>
