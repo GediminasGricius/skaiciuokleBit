@@ -26,8 +26,17 @@
 
       <div class="card-header">KMI rezultatai</div>
       <div class="card-body">
-        <div *ngIf="kmi!=null"> Rezultas: {{ kmi }} </div>
+
         <div *ngIf="kmi==null"> Įveskite ūgį ir svorį ir paspauskite skaičiuoti</div>
+
+        <div *ngIf="kmi!=null">
+          <div> Rezultas: {{ kmi }} </div>
+          <div *ngIf="kmi>18.5 && kmi<25" class="alert alert-success">Jūsų svoris optimalus</div>
+          <div class="progress">
+            <div class="progress-bar" [style.width.%]="proc" role="progressbar" aria-label="Basic example" style="width: 0%" ></div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>

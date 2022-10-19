@@ -9,6 +9,9 @@ export class KmiComponent implements OnInit {
   public ugis:number|null=null;
   public svoris:number|null=null;
   public kmi:number|null=null;
+  public sk:number=90;
+
+  public  proc:number=0;
 
   constructor() { }
 
@@ -18,7 +21,9 @@ export class KmiComponent implements OnInit {
   public skaiciuoti(){
     if (this.svoris!=null && this.ugis!=null){
        this.kmi=Number( (this.svoris/((this.ugis/100)**2)).toFixed(2));
+       this.proc=Math.round((this.kmi/50)*100) ;
     }
+
   }
 
 }
