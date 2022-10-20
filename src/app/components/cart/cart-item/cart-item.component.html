@@ -1,0 +1,9 @@
+
+
+<div class="row mb-1">
+  <div class="col-md-6">{{ index!+1 }}. {{ product!.name }}</div>
+  <div class="col-md-3">{{ product!.quantity }} vnt.</div>
+  <div class="col-md-3">
+    <a [routerLink]="['/edit',index]" class="btn btn-success">Redaguoti</a>&nbsp;
+    <button class="btn btn-danger" (click)="buttonDeletePressed()"  >Ištrinti</button></div>
+</div>

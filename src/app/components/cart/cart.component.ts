@@ -17,8 +17,10 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public delete(i:number){
-    this.productsService.delete(i);
+
+
+  public onReceiveDelete(i:number){
+     this.productsService.delete(i);
 
   }
 

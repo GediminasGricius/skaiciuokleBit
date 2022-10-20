@@ -9,6 +9,13 @@
       <label class="form-label">Kiekis</label>
       <input type="number" class="form-control" [(ngModel)]="quantity" >
     </div>
+    <div class="mb-3">
+      <label class="form-label">Kategorija</label>
+      <select type="text" class="form-control" [(ngModel)]="category" >
+          <option disabled value="">Pasirinkite</option>
+          <option *ngFor="let cat of categories; let i=index" [value]="i">{{ cat }}</option>
+      </select>
+    </div>
     <button class="btn btn-success" (click)="addProduct()" [disabled]="name==null || quantity==null"  >Pridėti</button>
   </div>
 </div>
