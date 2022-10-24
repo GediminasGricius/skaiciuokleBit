@@ -11,11 +11,14 @@ import { CartDetailsComponent } from './components/cart-details/cart-details.com
 import { NavigationComponent } from './components/navigation/navigation.component';
 import {RouterModule, Routes} from "@angular/router";
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { JokeComponent } from './components/joke/joke.component';
+import {HttpClientModule} from "@angular/common/http";
 
 const appRoutes:Routes=[
   {path:"", component:CartComponent},
   {path:"new", component:AddProductComponent},
-  {path:"edit/:id", component:EditProductComponent}
+  {path:"edit/:id", component:EditProductComponent},
+  {path:"joke", component:JokeComponent}
 ]
 
 @NgModule({
@@ -28,12 +31,14 @@ const appRoutes:Routes=[
     CartDetailsComponent,
     NavigationComponent,
     EditProductComponent,
+    JokeComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

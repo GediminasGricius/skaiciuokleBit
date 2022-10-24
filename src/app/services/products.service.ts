@@ -8,6 +8,10 @@ export class ProductsService {
   private _products:Product[]=[];
   private _productUpdate=new EventEmitter();
 
+
+
+
+
   constructor() {
     this.load();
   }
@@ -37,6 +41,8 @@ export class ProductsService {
   public get productUpdate(){
     return this._productUpdate;
   }
+
+
 
   public save(){
     localStorage.setItem('products',JSON.stringify(this._products));

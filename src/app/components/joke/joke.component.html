@@ -1,0 +1,19 @@
+
+
+
+
+
+
+<div *ngIf="loading==false && error==false" class="alert alert-success">{{ joke }}</div>
+<div *ngIf="loading==true && error==false" class="alert alert-info">Loading...</div>
+<div *ngIf="loading==false && error==true" class="alert alert-danger">Klaida parsiunčiant duomenis</div>
+<div class="row">
+  <div class="col-md-6">
+    <select [(ngModel)]="category"  class="form-control">
+      <option *ngFor="let c of categories ">{{ c }}</option>
+    </select>
+
+  </div>
+  <div class="col-md-6"><button (click)="clickLoadJoke()" class="btn btn-success">Užkrauti anekdotą</button>
+  </div>
+</div>

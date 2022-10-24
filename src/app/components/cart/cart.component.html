@@ -4,7 +4,6 @@
 
 
 
-
     <div>
       <div class="list-group"  >
         <app-cart-item *ngFor="let product of products; let i=index" [product]="product" [index]="i" (productDelete)="onReceiveDelete($event)" ></app-cart-item>
