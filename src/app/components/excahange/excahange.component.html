@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-6">
+
+
+
+  <div class="mb-3">
+    <label class="form-label">Versti iš: </label>
+    <select [(ngModel)]="from"  class="form-control">
+      <option *ngFor="let cc of currenciesCodes; let i=index " [value]="cc" >{{ currenciesNames[i] }}</option>
+    </select>
+  </div>
+    <div class="mb-3">
+      <label class="form-label">Versti į: </label>
+      <select [(ngModel)]="to"  class="form-control">
+        <option *ngFor="let cc of currenciesCodes; let i=index " [value]="cc" >{{ currenciesNames[i] }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-md-6">
+    {{ outText }}
+    <button  class="btn btn-success" (click)="exchnge()" >Rodyti valiutu kursus</button>
+  </div>
+</div>

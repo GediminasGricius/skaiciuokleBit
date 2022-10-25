@@ -6,6 +6,4 @@ export interface Joke{
 }
 
 
-export interface C{
-  [key:string]:string
-}
+

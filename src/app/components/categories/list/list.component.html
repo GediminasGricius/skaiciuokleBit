@@ -1,0 +1,17 @@
+<table class="table">
+
+
+
+<tbody>
+  <tr *ngFor="let category of categories">
+
+      <td>{{category.name }}</td>
+      <td>{{category.user_id }}</td>
+
+      <td>
+        <a class="btn btn-success" [routerLink]="['/categories',category.id]"  >Redaguoti</a>&nbsp;
+        <button class="btn btn-danger" (click)="onClickDelete(category.id)">Ištrinti</button>
+      </td>
+  </tr>
+</tbody>
+</table>

@@ -13,12 +13,18 @@ import {RouterModule, Routes} from "@angular/router";
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { JokeComponent } from './components/joke/joke.component';
 import {HttpClientModule} from "@angular/common/http";
+import { ExcahangeComponent } from './components/excahange/excahange.component';
+import { ListComponent } from './components/categories/list/list.component';
+import { EditComponent } from './components/categories/edit/edit.component';
 
 const appRoutes:Routes=[
   {path:"", component:CartComponent},
   {path:"new", component:AddProductComponent},
   {path:"edit/:id", component:EditProductComponent},
-  {path:"joke", component:JokeComponent}
+  {path:"joke", component:JokeComponent},
+  {path:"exchange", component:ExcahangeComponent},
+  {path:"categories", component:ListComponent},
+  {path:"categories/:id",component:EditComponent},
 ]
 
 @NgModule({
@@ -32,6 +38,9 @@ const appRoutes:Routes=[
     NavigationComponent,
     EditProductComponent,
     JokeComponent,
+    ExcahangeComponent,
+    ListComponent,
+    EditComponent,
 
   ],
   imports: [
