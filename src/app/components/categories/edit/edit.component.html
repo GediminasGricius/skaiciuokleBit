@@ -5,17 +5,27 @@
 
 <div class="row">
   <div class="col-md-6">
-    <div class="mb-3">
-      <label class="form-label">Pavadinimas</label>
-      <input type="text" [(ngModel)]="name" class="form-control" >
+    <form #f="ngForm"  (ngSubmit)="onClickTest(f)">
+        <input type="hidden" name="id" ngModel [(ngModel)]="id" >
+      <div class="mb-3">
+        <label class="form-label">Pavadinimas</label>
+        <input type="text" name="name" ngModel [(ngModel)]="name" required minlength="5" class="form-control" #fname="ngModel">
+        <div *ngIf="!fname.valid && fname.touched " class="alert alert-danger mt-2">Pavadinimas privalo būti ne trumpesnis nei 5 simboliai</div>
 
-    </div>
-    <div class="mb-3">
-      <label class="form-label">User ID</label>
-      <input type="number" [(ngModel)]="user_id" class="form-control" >
+      </div>
+      <div class="mb-3">
+        <label class="form-label">El. paštas</label>
+        <input type="text" name="email" ngModel  required email class="form-control" #femail="ngModel" >
+        <div *ngIf="!femail.valid && femail.touched " class="alert alert-danger mt-2">Pateikstass el. pa privalo būti ne trumpesnis nei 5 simboliai</div>
 
-    </div>
-    <button (click)="onClickSave()" class="btn btn-success">Išsaugoti</button>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">User ID</label>
+        <input type="number" name="user_id" ngModel  [(ngModel)]="user_id" required  class="form-control" >
+
+      </div>
+      <button [disabled]="!f.valid"  type="submit" class="btn btn-success">Išsaugoti</button>
+    </form>
   </div>
   <div class="col-md-6">
   </div>

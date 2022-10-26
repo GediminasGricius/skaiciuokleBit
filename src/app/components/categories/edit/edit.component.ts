@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {CategoriesService} from "../../../services/categories.service";
 import {Category} from "../../../models/Category";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-edit',
@@ -13,6 +14,7 @@ export class EditComponent implements OnInit {
   public id:number;
   public name:string|null=null;
   public user_id:number|null=null;
+
   constructor(
     private route:ActivatedRoute,
     private categoryService:CategoriesService,
@@ -20,6 +22,7 @@ export class EditComponent implements OnInit {
   ) {
     this.id=this.route.snapshot.params['id'];
     categoryService.getCategory(this.id).subscribe((category)=>{
+
       this.name=category.name;
       this.user_id=category.user_id;
     });
@@ -28,17 +31,15 @@ export class EditComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public onClickSave(){
-    if (this.name && this.user_id){
-      const category:Category={
-        id:this.id,
-        name:this.name,
-        user_id:this.user_id,
-      };
-      this.categoryService.updateCategory(category).subscribe(()=>{
-        this.router.navigate(["/categories"]);
-      });
-    };
+
+  public onClickTest(f:NgForm){
+    const cat:Category=<Category>f.value;
+
+    this.categoryService.updateCategory(cat).subscribe(()=>{
+      this.router.navigate(["/categories"]);
+    });
+
+
   }
 
 }
