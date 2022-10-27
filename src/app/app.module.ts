@@ -12,10 +12,13 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import {RouterModule, Routes} from "@angular/router";
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { JokeComponent } from './components/joke/joke.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { ExcahangeComponent } from './components/excahange/excahange.component';
 import { ListComponent } from './components/categories/list/list.component';
 import { EditComponent } from './components/categories/edit/edit.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { LoginComponent } from './components/login/login.component';
+import {AuthInterceptor} from "./services/auth.interceptor";
 
 const appRoutes:Routes=[
   {path:"", component:CartComponent},
@@ -25,6 +28,8 @@ const appRoutes:Routes=[
   {path:"exchange", component:ExcahangeComponent},
   {path:"categories", component:ListComponent},
   {path:"categories/:id",component:EditComponent},
+  {path:"userProfile", component:UserProfileComponent},
+  {path:"login",component:LoginComponent}
 ]
 
 @NgModule({
@@ -41,6 +46,8 @@ const appRoutes:Routes=[
     ExcahangeComponent,
     ListComponent,
     EditComponent,
+    UserProfileComponent,
+    LoginComponent,
 
   ],
   imports: [
@@ -49,7 +56,13 @@ const appRoutes:Routes=[
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
